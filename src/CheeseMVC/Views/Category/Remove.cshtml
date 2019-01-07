@@ -1,0 +1,19 @@
+﻿
+<h1>@ViewBag.title</h1>
+
+<form method="post">
+
+    @foreach (var category in ViewBag.categories)
+    {
+        <input type="checkbox" name="categoryIds" id="@category.ID" value="@category.ID" />
+        <label for="@category.ID">@category.Name</label>
+        <br />
+    }
+
+    <input type="submit" value="Remove Selected Category(s)" />
+</form>
+
+<p></p>
+
+<p><a asp-controller="Category" asp-action="Index">Category List</a></p>
+<p><a asp-controller="Category" asp-action="Add">Add Category</a></p>

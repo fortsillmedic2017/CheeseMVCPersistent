@@ -1,0 +1,31 @@
+﻿
+
+@model CheeseMVC.ViewModels.ViewMenuViewModel
+
+<h1>@Model.Menu.Name.ToUpper() (Menu)</h1>
+
+<ul>
+    @foreach (var cheeseMenu in Model.Items)
+    {
+        <li>@cheeseMenu.Cheese.Name</li>
+
+    }
+</ul>
+
+@if (Model.Items.Count == 0)
+{
+    <p><i>No Menu Items!</i></p>
+}
+
+<p><a asp-controller="Menu" asp-action="AddItem" asp-route-id="@Model.Menu.ID">Add Item</a></p>
+
+
+
+
+
+
+
+
+
+
+

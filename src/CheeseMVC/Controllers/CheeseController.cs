@@ -20,6 +20,7 @@ namespace CheeseMVC.Controllers
         // GET: /<controller>/
         public IActionResult Index()
         {
+            ViewBag.title = "Cheese List";
             IList<Cheese> cheeses = context.Cheeses.Include(c => c.Category).ToList();
             //List<Cheese> cheeses = context.Cheeses.ToList();
 
@@ -34,11 +35,12 @@ namespace CheeseMVC.Controllers
 
         [HttpPost]
         public IActionResult Add(AddCheeseViewModel addCheeseViewModel)
-        {
+        {         
             if (ModelState.IsValid)
             {
                 CheeseCategory newCheeseCategory =
-                    context.Categories.Single(c => c.ID == addCheeseViewModel.CategoryID);
+                         context.Categories.Single(c => c.ID == addCheeseViewModel.CategoryID);
+
                 // Add the new cheese to my existing cheeses
                 Cheese newCheese = new Cheese
                 {
@@ -55,6 +57,8 @@ namespace CheeseMVC.Controllers
 
             return View(addCheeseViewModel);
         }
+
+
 
         public IActionResult Remove()
         {

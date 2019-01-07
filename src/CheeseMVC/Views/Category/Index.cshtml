@@ -5,9 +5,10 @@
 <ul>
     @foreach(var category in Model)
     {
-        <li>@category.Name</li>
+    <li><a asp-controller="Menu" asp-action="Index">@category.Name</a></li>
     }
     
 </ul>
 <p></p>
 <p><a asp-controller="Category" asp-action="Add">Add Category</a></p>
+<p><a asp-controller="Category" asp-action="Remove">Remove Category</a></p>
