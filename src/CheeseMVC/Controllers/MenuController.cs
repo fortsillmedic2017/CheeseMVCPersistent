@@ -141,8 +141,8 @@ namespace CheeseMVC.Controllers
         {
             ViewBag.title = "Remove Menu";
             ViewBag.menus = context.Menus.ToList();
-
             return View();
+           
         }
 
         [HttpPost]
@@ -150,14 +150,14 @@ namespace CheeseMVC.Controllers
         {
             foreach (int menuId in menuIds)
             {
-                Menu theMenu = context.Menus.Single(c => c.ID == menuId);
+                Menu theMenu = context.Menus.Single(m => m.ID == menuId);
 
                 context.Menus.Remove(theMenu);
             }
 
             context.SaveChanges();
 
-            return Redirect("/");
+            return Redirect("/Menu");
         }
 
     }
